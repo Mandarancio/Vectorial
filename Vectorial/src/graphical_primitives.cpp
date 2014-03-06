@@ -187,9 +187,11 @@ Path * computePath(NSVGpath * path) {
 	int tot = 0;
 	if (path->closed) {
 		tot = n * ( path->npts / 3) ;
+		std::cout<<"Closing path\n";
 	} else{
 		tot = n * (path->npts / 3 -1);
 		end-=3;
+		std::cout<<"Non closing path\n";
 	}Point2D * cp;
 	float* p;
 	Point2D * pointpath = new Point2D[tot];
@@ -217,8 +219,8 @@ Path * computePath(NSVGpath * path) {
 			pointpath[i / 3 * n + j] = curve[j];
 		}
 	}
-
-	pointpath[tot - 1] = pointpath[0];
+	if (path->closed)
+		pointpath[tot - 1] = pointpath[0];
 	Path* result = new Path();
 	result->size = tot;
 	result->points = pointpath;
