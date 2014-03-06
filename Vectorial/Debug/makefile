@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include src/vectorSVG/subdir.mk
 -include src/nanosvg/subdir.mk
+-include src/graphics/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk

@@ -26,4 +26,5 @@ SUBDIRS := \
 src/vectorSVG \
 src/nanosvg \
 src \
+src/graphics \
 

@@ -10,7 +10,7 @@
 
 GameScene::GameScene(std::string name) :
 	Entity(name, GRAPHICAL) {
-
+	screen_=0;
 }
 
 GameScene::~GameScene() {
