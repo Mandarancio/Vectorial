@@ -183,15 +183,18 @@ Point2D * computeBezier(Point2D * cp, int n) {
 Path * computePath(NSVGpath * path) {
 	int n = PRECISION;
 	int end=path->npts-1;
-
+	bool open=false;
 	int tot = 0;
 	if (path->closed) {
 		tot = n * ( path->npts / 3) ;
-		std::cout<<"Closing path\n";
+		if (STD_DEBUG)
+			std::cout<<"Closing path\n";
 	} else{
 		tot = n * (path->npts / 3 -1);
-		end-=3;
-		std::cout<<"Non closing path\n";
+//		end-=3;
+		open=true;
+		if (STD_DEBUG)
+			std::cout<<"Non closing path\n";
 	}Point2D * cp;
 	float* p;
 	Point2D * pointpath = new Point2D[tot];
