@@ -33,6 +33,8 @@ void drawCircle(SDL_Surface *surface, int cx, int cy, int radius,
 void fillCircle(SDL_Surface *surface, int cx, int cy, int radius,
 		Uint32 pixel) {
 	filledCircleColor(surface, cx, cy, radius, pixel);
+	aacircleColor(surface, cx, cy, radius, pixel);
+
 }
 
 Uint32 getColor(unsigned char *buffer) {
