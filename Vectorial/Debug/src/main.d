@@ -1,15 +1,23 @@
-src/main.d: ../src/main.cpp ../src/SVGGraphicalEntity.h \
- ../src/GraphicalEntity.h ../src/Entity.h ../src/nanosvg/nanosvg.h \
- ../src/graphical_primitives.h ../src/GameScene.h
+src/main.d: ../src/main.cpp ../src/vectorSVG/VSVGImage.h \
+ ../src/vectorSVG/VSVGShape.h ../src/vectorSVG/VSVGPaint.h \
+ ../src/vectorSVG/VSVGPath.h ../src/vectorSVG/Bezier.h \
+ ../src/vectorSVG/Point2D.h ../src/vectorSVG/VSVGParser.h \
+ ../src/vectorSVG/VSVGImage.h ../src/vectorSVG/../rapidXML/rapidxml.hpp
 
-../src/SVGGraphicalEntity.h:
+../src/vectorSVG/VSVGImage.h:
 
-../src/GraphicalEntity.h:
+../src/vectorSVG/VSVGShape.h:
 
-../src/Entity.h:
+../src/vectorSVG/VSVGPaint.h:
 
-../src/nanosvg/nanosvg.h:
+../src/vectorSVG/VSVGPath.h:
 
-../src/graphical_primitives.h:
+../src/vectorSVG/Bezier.h:
 
-../src/GameScene.h:
+../src/vectorSVG/Point2D.h:
+
+../src/vectorSVG/VSVGParser.h:
+
+../src/vectorSVG/VSVGImage.h:
+
+../src/vectorSVG/../rapidXML/rapidxml.hpp:

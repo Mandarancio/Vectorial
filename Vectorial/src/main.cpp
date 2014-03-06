@@ -6,25 +6,31 @@
  */
 #include <string>
 #include <iostream>
+#include <SDL/SDL.h>
 
-#include "SVGGraphicalEntity.h"
-#include "GameScene.h"
+#include "vectorSVG/VSVGImage.h"
+#include "vectorSVG/VSVGParser.h"
 
-#include "nanosvg/nanosvg.h"
-
-int main(int argc, char**argv) {
-	std::string filename = "./rsc/easy.svg";
-	std::cout<<filename<<"\n";
-	SVGGraphicalEntity * svgEntity = new SVGGraphicalEntity("test",
-			nsvgParseFromFile(filename.c_str(), "px", 90.0f));
-//	svgEntity->setRasterizedMode(true);
-	std::cout<<"SVG Entity done\n";
-	GameScene *scene = new GameScene("test");
-	std::cout<<"Scene done\n";
-	scene->addEntity(svgEntity);
-	std::cout<<"Entity added\n";
-	scene->run();
-	std::cout<<"exit\n";
-	return 0;
+int main() {
+	VSVGParser * parser = new VSVGParser();
+	VSVGImage *image=parser->parse("rsc/easy.svg", PX, 90);
+	image->getWidth();
+	SDL_Surface * screen_ = SDL_SetVideoMode(image->getWidth(), image->getHeight(), 32, SDL_ANYFORMAT);
+	if (screen_ != NULL) {
+		for (;;) {
+			SDL_Flip( screen_);
+			SDL_LockSurface(screen_);
+			SDL_FillRect(screen_, &screen_->clip_rect, 0xFFFFFFFF);
+			image->render(screen_);
+			SDL_Event event;
+			while (SDL_PollEvent(&event)) {
+				if (event.key.keysym.sym == SDLK_ESCAPE) {
+					SDL_Quit();
+					return 0;
+				}
+			}
+			SDL_UnlockSurface(screen_);
+		}
+	}
+	return 1;
 }
-
