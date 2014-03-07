@@ -29,6 +29,7 @@
 #define RECT "rect"
 #define PATH "path"
 
+#define DEBUG true
 #define PI (3.14159265358979323846264338327f)
 
 //struct NamedColor namedColors[] = {
@@ -341,6 +342,8 @@ VSVGImage *VSVGParser::parse(std::string fileName, Unit unit, float dpi) {
 
 	std::ifstream stream;
 	stream.open(fileName.c_str());
+	if (DEBUG)
+		std::cout<<"file opened\n";
 	if (stream.is_open()) {
 		std::string data;
 		std::string line;
@@ -492,7 +495,5 @@ void VSVGParser::parseStyle(std::string style, VSVGShape *shape) {
 	fillOpacity *= opacity;
 
 	std::cout << "FILL " << fill << "," << fillOpacity << "\n";
-	std::cout << "STROKE " << stroke << "," << strOpacity << "," << strWidth
-			<< "\n";
+	std::cout << "STROKE " << stroke << "," << strOpacity << "," << strWidth<< "\n";
 }
-

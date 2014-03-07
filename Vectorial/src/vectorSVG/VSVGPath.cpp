@@ -11,8 +11,10 @@
 #include <iostream>
 
 VSVGPath::VSVGPath() {
-	// TODO Auto-generated constructor stub
-
+	closed=false;
+	totalPoints=0;
+	vx=0;
+	vy=0;
 }
 
 VSVGPath::~VSVGPath() {

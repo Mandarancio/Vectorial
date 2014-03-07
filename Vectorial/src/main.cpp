@@ -12,9 +12,11 @@
 #include "vectorSVG/VSVGParser.h"
 
 int main() {
+	std::cout<<"make parser\n";
 	VSVGParser * parser = new VSVGParser();
+	std::cout<<"start svg parsing\n";
 	VSVGImage *image=parser->parse("rsc/easy.svg", PX, 90);
-	image->getWidth();
+	std::cout<<"parsed, rendering\n";
 	SDL_Surface * screen_ = SDL_SetVideoMode(image->getWidth(), image->getHeight(), 32, SDL_ANYFORMAT);
 	if (screen_ != NULL) {
 		for (;;) {

@@ -64,6 +64,7 @@ void VBezier::render(SDL_Surface * surface, float strokeWidth,
 		p2.render(surface, 1, color, color);
 		c1.render(surface, 1, color, new VSVGPlainColor(0));
 		c2.render(surface, 1, color, new VSVGPlainColor(0));
+
 		aalineColor(surface, p1.x, p1.y, c1.x, c1.y, color->getColor());
 		aalineColor(surface, p2.x, p2.y, c2.x, c2.y, color->getColor());
 	}
